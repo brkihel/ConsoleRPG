@@ -1,7 +1,5 @@
 #pragma once
-#include <string>
-#include <iostream>
-#include <iomanip>
+#include "Inventory.h"
 
 class Character {
 	
@@ -44,6 +42,7 @@ class Character {
 		int vitality;
 		int dexterity;
 		int intelligence;
+		int luck;
 
 		int hp;
 		int hpMax;
@@ -52,7 +51,7 @@ class Character {
 		int damageMin;
 		int damageMax;
 		int defence;
-
+		
 		int statPoints;
 		int skillPoints;
 };
