@@ -28,6 +28,7 @@ class Character {
 		void initialize(const std::string name);
 		void printStats() const;
 		void levelUp();
+		std::string getAsString()const;
 
 	private:
 		double xPos;

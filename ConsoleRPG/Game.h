@@ -3,6 +3,8 @@
 #include "Character.h"
 
 #include <ctime>
+#include <vector>
+#include <fstream>
 
 class Game {
 	public:
@@ -19,6 +21,9 @@ class Game {
 		//Functions
 		void mainMenu();
 		void initGame();
+		void createNewCharacter();
+		void saveCharacter();
+		void loadCharacter();
 
 	private:
 		int choice;
@@ -26,6 +31,8 @@ class Game {
 
 
 		//Character related
-		Character character;
+		int activeCharacter;
+		std::vector<Character> characters;
+		std::string fileName;
 };
 
