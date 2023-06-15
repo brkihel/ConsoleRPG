@@ -34,6 +34,10 @@ class Character {
 		double xPos;
 		double yPos;
 		
+		Inventory inventory;
+		Weapon weapon;
+		Armor armor;
+
 		std::string name;
 		int level;
 		int exp;
@@ -51,7 +55,10 @@ class Character {
 		int staminaMax;
 		int damageMin;
 		int damageMax;
+		int damageCrit;
 		int defence;
+		int critChance;
+		int areaPercept;		
 		
 		int statPoints;
 		int skillPoints;

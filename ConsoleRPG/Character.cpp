@@ -22,6 +22,7 @@ Character::Character() {
 	this->damageMin = 0;
 	this->damageMax = 0;
 	this->defence = 0;
+	this->areaPercept = 0;
 
 	this->statPoints = 0;
 	this->skillPoints = 0;
@@ -50,13 +51,16 @@ void Character::initialize(const std::string name) {
 	this->intelligence = 5;
 	this->luck = 1;
 	
-	this->hp = 10;
-	this->hpMax = 10;
-	this->stamina = 10;
-	this->staminaMax = 10;
-	this->damageMin = 1;
-	this->damageMax = 4;
-	this->defence = 1;	
+	this->hpMax = (this->vitality * 2) + (this->strenght / 2);
+	this->hp = this->hpMax;
+	this->staminaMax = this->vitality + (this->strenght / 2) + (this->dexterity / 3);
+	this->stamina = this->staminaMax;	
+	this->damageMin = this->strenght;
+	this->damageMax = this->strenght + 2;
+	this->damageCrit = (this->damageMax * 2) + (this->luck / 2);
+	this->defence = this->dexterity + (this->intelligence / 2);
+	this->critChance = (this->luck / 50) + (this->dexterity / 100);
+	this->areaPercept = this->intelligence;
 
 	this->statPoints = 0;
 	this->skillPoints = 0;

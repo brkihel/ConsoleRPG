@@ -13,7 +13,9 @@ Game::~Game() {
 
 //Functions
 void Game::initGame() {
-
+	createNewCharacter();
+	Weapon w1(5, 10, "arma", 1, 100, 50, 1);
+	std::cout << w1.toString() << std::endl;
 }
 
 void Game::mainMenu() {
@@ -52,6 +54,7 @@ void Game::mainMenu() {
 		break;
 
 	case 8:
+		std::cin.ignore();	
 		createNewCharacter();
 		saveCharacter();
 		break;
@@ -64,7 +67,6 @@ void Game::mainMenu() {
 void Game::createNewCharacter() {
 	std::string name;
 	std::cout << "Enter the name for your character" << std::endl;
-	std::cin.ignore();
 	getline(std::cin, name);
 
 	characters.push_back(Character());

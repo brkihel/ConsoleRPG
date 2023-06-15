@@ -20,12 +20,9 @@ void Inventory::expand() {
 	Item** tempArr = new Item* [this->cap];
 
 	for (size_t i = 0; i < this->nrOfItems; i++) {
-		tempArr[i] = new Item(*this->itemArr[i]);
+		tempArr[i] = this->itemArr[i];
 	}
 
-	for (size_t i = 0; i < this->nrOfItems; i++) {
-		delete this->itemArr[i];
-	}
 	delete[] this->itemArr;
 
 	this->itemArr = tempArr;
@@ -43,7 +40,7 @@ void Inventory::addItem(const Item& item) {
 	if (this->nrOfItems >= this->cap) {
 		expand();
 	}
-	this->itemArr[this->nrOfItems++] = new Item(item);
+	this->itemArr[this->nrOfItems++] = item.clone();
 }
 
 void Inventory::removeItem(int index) {
