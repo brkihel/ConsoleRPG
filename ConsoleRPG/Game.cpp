@@ -13,9 +13,8 @@ Game::~Game() {
 
 //Functions
 void Game::initGame() {
+	Inventory inv;
 	createNewCharacter();
-	Weapon w1(5, 10, "arma", 1, 100, 50, 1);
-	std::cout << w1.toString() << std::endl;
 }
 
 void Game::mainMenu() {
