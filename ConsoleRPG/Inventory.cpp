@@ -29,7 +29,7 @@ Inventory::Inventory(const Inventory &obj) {
 
 Item& Inventory::operator[](const int index) {
 	if (index < 0 || index >= this->nrOfItems)
-		throw("BAD INDEX!");
+		throw("ERROR 00 - BAD INDEX!(Inventory.cpp)");
 
 		return *this->itemArr[index];
 	}

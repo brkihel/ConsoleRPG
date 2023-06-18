@@ -3,6 +3,9 @@
 Character::Character() {
 	this->xPos = 0.0;
 	this->yPos = 0.0;
+	this->distanceTravelled = 0;
+
+	this->gold = 0;
 
 	this->name = "NONE";
 	this->level = 0;
@@ -23,6 +26,7 @@ Character::Character() {
 	this->damageMax = 0;
 	this->defence = 0;
 	this->areaPercept = 0;
+	this->accuracy = 0;
 
 	this->statPoints = 0;
 	this->skillPoints = 0;
@@ -36,6 +40,9 @@ Character::~Character() {
 void Character::initialize(const std::string name) {
 	this->xPos = 0.0;
 	this->yPos = 0.0;
+	this->distanceTravelled = 0;
+
+	this->gold = 100;
 
 	this->name = name;
 	this->level = 1;
@@ -51,6 +58,8 @@ void Character::initialize(const std::string name) {
 	this->intelligence = 5;
 	this->luck = 1;
 	
+	this->areaPercept = this->intelligence;
+
 	this->hpMax = (this->vitality * 2) + (this->strenght / 2);
 	this->hp = this->hpMax;
 	this->staminaMax = this->vitality + (this->strenght / 2) + (this->dexterity / 3);
@@ -60,7 +69,7 @@ void Character::initialize(const std::string name) {
 	this->damageCrit = (this->damageMax * 2) + (this->luck / 2);
 	this->defence = this->dexterity + (this->intelligence / 2);
 	this->critChance = (this->luck / 50) + (this->dexterity / 100);
-	this->areaPercept = this->intelligence;
+	this->accuracy = (this->intelligence + this->dexterity) / 2;
 
 	this->statPoints = 0;
 	this->skillPoints = 0;
@@ -81,10 +90,13 @@ void Character::printStats() const{
 	std::cout << "Dexterity:" << this->dexterity << std::endl;
 	std::cout << "Intelligence :" << this->intelligence << std::endl;
 	std::cout << "Luck :" << this->luck << std::endl;
-	std::cout << std::endl;
 	std::cout << "===   Battle stats:   ===" << std::endl;
 	std::cout << "Damage: " << this->damageMin << " - " << this->damageMax << std::endl;
 	std::cout << "Defence: " << this->defence << std::endl;
+	std::cout << "===   Special Stats   ===" << std::endl;
+	std::cout << "Crit chance: " << this->critChance << std::endl;
+	std::cout << "Accuracy: " << this->accuracy << std::endl;
+	std::cout << "Perception: " << this->areaPercept << std::endl;
 }
 
 void Character::levelUp() {

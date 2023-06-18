@@ -13,8 +13,9 @@ Game::~Game() {
 
 //Functions
 void Game::initGame() {
-	Inventory inv;
 	createNewCharacter();
+	Puzzle p("puzzle.txt");
+	std::cout << p.getAsString() << "\n";
 }
 
 void Game::mainMenu() {
@@ -86,4 +87,11 @@ void Game::saveCharacter() {
 
 void Game::loadCharacter() {
 
+}
+
+void Game::Travel() {
+	this->characters[activeCharacter].travel();
+
+	Event ev;
+	ev.generateEvent(this->characters[activeCharacter]);
 }

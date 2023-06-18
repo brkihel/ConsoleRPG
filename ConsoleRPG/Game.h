@@ -1,10 +1,9 @@
 #pragma once
 #include "Functions.h"
-#include "Character.h"
+#include "Event.h"
 
 #include <ctime>
 #include <vector>
-#include <fstream>
 
 class Game {
 	public:
@@ -24,6 +23,7 @@ class Game {
 		void createNewCharacter();
 		void saveCharacter();
 		void loadCharacter();
+		void Travel();
 
 	private:
 		int choice;
